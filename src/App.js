@@ -1,17 +1,19 @@
 import logo from './logo.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Card from './Card';
+import axios from "axios"
 
 function App() {
   const [category, setCategory] = useState("All");
   const [priority, setPriority] = useState("All");
-  const ogProducts = [
-    {"Category":"UI", "Description":"Submit button coming at the exterme left", "Priority": 2, "Status":"open", "Change Status": "Close Defect"}, 
-    {"Category":"Functional", "Description":"While submitting the form data, give confirmation popup", "Priority": 1, "Status":"open", "Change Status": "Close Defect"},
-    {"Category":"Change Request", "Description":"Add remove functionality", "Priority": 3, "Status":"closed", "Change Status": "No action pending"}
-  ];
+  const [ogProducts, setOgProducts] = useState([])
+
   const [products, setProducts] = useState(ogProducts);
+
+  useEffect(() => {
+    axios.get("http://localhost:4500/cart").then(result => {setOgProducts(result.data); setProducts(result.data)})
+  }, [])
 
   const handleChange = (category, priority) => {
     const filteredProducts = ogProducts.filter(product =>

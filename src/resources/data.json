@@ -1,0 +1,7 @@
+{
+    "cart": [
+        {"Category":"UI", "Description":"Submit button coming at the exterme left", "Priority": 2, "Status":"open", "Change Status": "Close Defect"}, 
+        {"Category":"Functional", "Description":"While submitting the form data, give confirmation popup", "Priority": 1, "Status":"open", "Change Status": "Close Defect"},
+        {"Category":"Change Request", "Description":"Add remove functionality", "Priority": 3, "Status":"closed", "Change Status": "No action pending"}
+    ]
+} 
